@@ -2,6 +2,7 @@
 {
   den.hosts.x86_64-linux.minipc.users.gmang.classes = [
     "hjem"
+    "homeManager"
     "nixos"
   ];
 
