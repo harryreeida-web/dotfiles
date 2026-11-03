@@ -75,7 +75,9 @@
       xdg.config.files."mango/monitors.conf".text = ''
         monitor_rule=name:HDMI-A-1,width:1360,height:768,refresh:60,x:0,y:0
         monitor_rule=name:DP-2,width:1920,height:1080,refresh:59.94000,x:1360,y:0,primary:1
-        monitor_rule=name:DP-3,width:1920,height:1080,refresh:60,x:3280,y:0
+        monitor_rule=name:DP-3,width:1920,height:1080,refresh:60,x:3280,y:0,rr:3
+
+        tag_rule=id:*,monitor_name:DP-3,layout_name:vertical_tile
       '';
     };
   };

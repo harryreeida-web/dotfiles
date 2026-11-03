@@ -90,6 +90,7 @@
         monitor_rule=name:HDMI-A-2,width:1920,height:1080,x:0,y:420,refresh:60,primary:1
         monitor_rule=name:HDMI-A-1,width:1920,height:1080,x:1920,y:0,refresh:60,rr:3
         monitor_rule=name:DP-1,width:1920,height:1080,x:3000,y:420,refresh:60
+        tag_rule=id:*,monitor_name:HDMI-A-1,layout_name:vertical_tile
       '';
     };
   };
