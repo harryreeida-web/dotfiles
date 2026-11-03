@@ -10,7 +10,5 @@
       user = "mckahz";
       directory = "/home/mckahz";
     };
-
-    homeManager.uninstall = true;
   };
 }

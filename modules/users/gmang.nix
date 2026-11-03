@@ -10,7 +10,5 @@
       user = "gmang";
       directory = "/home/gmang";
     };
-
-    homeManager.uninstall = true;
   };
 }
