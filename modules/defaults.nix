@@ -87,8 +87,10 @@
             inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
             brightnessctl
+            jq
 
             # Random applications
+            mpv # Video player
             qview # Image viewer
             krita # Image editor
             nautilus # File explorer

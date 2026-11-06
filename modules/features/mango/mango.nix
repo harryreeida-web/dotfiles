@@ -25,6 +25,7 @@
         "${osConfig.flake}/modules/features/mango/config.conf";
       xdg.config.files."mango/binds.conf".source = "${osConfig.flake}/modules/features/mango/binds.conf";
       xdg.config.files."mango/monitors.conf".text = lib.mkDefault "";
+      xdg.config.files."mango/swap-tags.sh".source = "${osConfig.flake}/modules/features/mango/swap-tags.sh";
     };
   };
 }
