@@ -77,6 +77,8 @@
             enable32Bit = true;
           };
 
+          environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
           nixpkgs.config.allowUnfree = true;
 
           fonts.packages = with pkgs; [ jetbrains-mono ];
@@ -99,10 +101,11 @@
             transmission_4-qt # Torrent
             obsidian
             localsend
-            (discord.override {
-              # withOpenASAR = true; # can do this here too
-              withVencord = true;
-            })
+            discord-ptb
+            # (discord.override {
+            #   withOpenASAR = true; # can do this here too
+            #   withVencord = true;
+            # })
           ];
 
           programs.nh = {
