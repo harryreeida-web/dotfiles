@@ -34,42 +34,35 @@
 
         system.stateVersion = "25.11";
 
-        imports = [
-          (modulesPath + "/installer/scan/not-detected.nix")
-        ];
 
-        boot.initrd.availableKernelModules = [
-          "xhci_pci"
-          "ahci"
-          "usbhid"
-          "uas"
-          "sd_mod"
-        ];
-        boot.initrd.kernelModules = [ ];
-        boot.kernelModules = [ "kvm-amd" ];
-        boot.extraModulePackages = [ ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-        fileSystems."/" = {
-          device = "/dev/disk/by-uuid/2fe23d4b-a0b5-4758-a8ab-f7ef31806bfb";
-          fsType = "ext4";
-        };
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
-        fileSystems."/boot" = {
-          device = "/dev/disk/by-uuid/8399-66A6";
-          fsType = "vfat";
-          options = [
-            "fmask=0077"
-            "dmask=0077"
-          ];
-        };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/1d373edf-e679-4d2d-b1df-fb6ba0981650";
+      fsType = "ext4";
+    };
 
-        swapDevices = [
-          { device = "/dev/disk/by-uuid/61c9fc0a-ab0f-4fde-bd92-cbc3c9325c69"; }
-        ];
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/3223-F058";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
-        nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-        hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-      };
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/8a6c031e-bd03-42f1-bb57-4c7c7a97fe03"; }
+    ];
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+};
+
 
     provides.to-users.hjem = {
       xdg.config.files."mango/monitors.conf".text = ''
